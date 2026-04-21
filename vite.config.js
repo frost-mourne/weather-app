@@ -8,5 +8,8 @@ export default defineConfig({
     port: 5174,        
     strictPort: true,  // Чтобы Vite не переключился на 5173, если 5174 занят
     host: true,        // Обязательно для Docker (соответствует --host)
+    watch: {
+      usePolling: true, // Включает принудительный опрос файлов (решает проблему Docker на Windows)
+    },
   },
 })

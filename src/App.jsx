@@ -1,22 +1,30 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react'; 
+import './App.css';
+import { getWeatherData } from './services/weatherService';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [temperature, setTemperature] = useState('Загрузка...');
+
+  
+  useEffect(() => {
+    getWeatherData().then((data) => {
+      // Обращаемся к weatherData.current.temperature, как вы описали в сервисе
+      const currentTemp = data.current.temperature; 
+      setTemperature(Math.round(currentTemp) + '°C');
+    }).catch(err => {
+      console.error(err);
+      setTemperature('Ошибка загрузки');
+    });
+  }, []); 
 
   return (
     <>
       <section id="center">
-
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+          <h1>Температура</h1>
+          <div>{temperature}</div>
       </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
