@@ -1,0 +1,13 @@
+/* @media screen and (max-width: 800px){
+    .container {
+        display: inline-block;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+} */
+.container {
+    display: flex;
+    width: 600px;
+    justify-content: center;
+}

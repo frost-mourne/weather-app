@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'; 
 import './App.css';
 import { getWeatherData } from './services/weatherService';
+import Container from './components/layout/Container';
 
 function App() {
   const [temperature, setTemperature] = useState('Загрузка...');
@@ -19,10 +20,11 @@ function App() {
 
   return (
     <>
-      <section id="center">
+      {/* <section id="center">
           <h1>Температура</h1>
           <div>{temperature}</div>
-      </section>
+      </section> */}
+      <Container/>
     </>
   );
 }

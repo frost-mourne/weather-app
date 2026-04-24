@@ -1,0 +1,6 @@
+body {
+    display: flex;
+    justify-content: center; /* Центрирует по горизонтали */
+    min-height: 100vh;       /* Растягивает body на всю высоту экрана */
+    margin: 0;               /* Убирает стандартные отступы */
+  }

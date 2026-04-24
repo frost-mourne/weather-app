@@ -55,13 +55,13 @@ const weatherData = {
 };
 
 
-for (let i = 0; i < weatherData.daily.time.length; i++) {
-  console.log(
-    weatherData.daily.time[i].toISOString(), 
-    weatherData.daily.weatherCode[i], 
-    weatherData.daily.temperatureMax[i], 
-    weatherData.daily.temperatureMin[i]
-  );
-}
+// for (let i = 0; i < weatherData.daily.time.length; i++) {
+//   console.log(
+//     weatherData.daily.time[i].toISOString(), 
+//     weatherData.daily.weatherCode[i], 
+//     weatherData.daily.temperatureMax[i], 
+//     weatherData.daily.temperatureMin[i]
+//   );
+// }
 return weatherData; 
 }
