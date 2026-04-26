@@ -1,15 +1,16 @@
 import { fetchWeatherApi } from 'openmeteo';
 
-export const getWeatherData = async () => {
+export const getWeatherData = async (lat, long) => {
   const params = {
-    latitude: [52.54],
-    longitude: [13.41],
+    latitude: [lat],
+    longitude: [long],
     current: 'temperature_2m,weather_code,wind_speed_10m,wind_direction_10m',
     hourly: 'temperature_2m,precipitation',
     daily: 'weather_code,temperature_2m_max,temperature_2m_min'
 };
 const url = 'https://api.open-meteo.com/v1/forecast';
 const responses = await fetchWeatherApi(url, params);
+console.log(responses);
 
 // Helper function to form time ranges
 const range = (start, stop, step) =>
@@ -20,10 +21,10 @@ const response = responses[0];
 
 // Attributes for timezone and location
 const utcOffsetSeconds = response.utcOffsetSeconds();
-const timezone = response.timezone();
-const timezoneAbbreviation = response.timezoneAbbreviation();
-const latitude = response.latitude();
-const longitude = response.longitude();
+// const timezone = response.timezone();
+// const timezoneAbbreviation = response.timezoneAbbreviation();
+// const latitude = response.latitude();
+// const longitude = response.longitude();
 
 const current = response.current();
 const hourly = response.hourly();
@@ -63,5 +64,6 @@ const weatherData = {
 //     weatherData.daily.temperatureMin[i]
 //   );
 // }
+console.log(weatherData);
 return weatherData; 
 }

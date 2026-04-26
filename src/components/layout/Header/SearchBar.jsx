@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getGeoposition } from "../../../services/geocodingService"
 import SearchResult from "./SearchResult";
 
-function SearchBar(params) {
+function SearchBar({setData}) {
     const [search, setSearch] = useState('');
     const [response, setResponse] = useState(null);
     const [showResult, setShowResult] = useState(false);
@@ -15,6 +15,7 @@ function SearchBar(params) {
         if (!search) {
             return;
         }
+
         const timer = setTimeout(()=>{
 
             const response = getGeoposition(search);
@@ -34,7 +35,7 @@ function SearchBar(params) {
                 onBlur={()=>setShowResult(false)}
                 ></input>
             {showResult &&
-                (response && response.length > 0 ? <SearchResult response={response}/> : <p>Not found</p>)
+                (response && response.length > 0 ? <SearchResult response={response} setData={setData}/> : <p>Not found</p>)
             }
             
         </>

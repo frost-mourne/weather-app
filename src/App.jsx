@@ -4,19 +4,19 @@ import { getWeatherData } from './services/weatherService';
 import Container from './components/layout/Container';
 
 function App() {
-  const [temperature, setTemperature] = useState('Загрузка...');
+  // const [temperature, setTemperature] = useState('Загрузка...');
 
   
-  useEffect(() => {
-    getWeatherData().then((data) => {
-      // Обращаемся к weatherData.current.temperature, как вы описали в сервисе
-      const currentTemp = data.current.temperature; 
-      setTemperature(Math.round(currentTemp) + '°C');
-    }).catch(err => {
-      console.error(err);
-      setTemperature('Ошибка загрузки');
-    });
-  }, []); 
+  // useEffect(() => {
+  //   getWeatherData().then((data) => {
+  //     // Обращаемся к weatherData.current.temperature, как вы описали в сервисе
+  //     const currentTemp = data.current.temperature; 
+  //     setTemperature(Math.round(currentTemp) + '°C');
+  //   }).catch(err => {
+  //     console.error(err);
+  //     setTemperature('Ошибка загрузки');
+  //   });
+  // }, []); 
 
   return (
     <>

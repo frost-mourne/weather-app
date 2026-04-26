@@ -8,6 +8,7 @@
 } */
 .container {
     display: flex;
-    width: 600px;
+    flex-direction: column;
+    width: 1200px;
     justify-content: center;
 }
